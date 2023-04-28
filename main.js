@@ -1,3 +1,4 @@
+
 'use strict';
 
 // brings in the assert module for unit testing
@@ -11,8 +12,8 @@ const rl = readline.createInterface({
 });
 
 
-const pigLatin = (word) => {
-
+const isRampNumber = (number) => {
+return number
   // Your code here
 
 }
@@ -21,8 +22,8 @@ const pigLatin = (word) => {
 // to run the function use the command: node main.js
 // to close it ctrl + C
 const getPrompt = () => {
-  rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+  rl.question('whatNumber', (answer) => {
+    console.log( isRampNumber(answer) );
     getPrompt();
   });
 }
@@ -30,31 +31,23 @@ const getPrompt = () => {
 // Unit Tests
 // to use them run the command: npm test main.js
 // to close them ctrl + C
-if (typeof describe === 'function') {
 
-  describe('#pigLatin()', () => {
-    it('should translate a simple word', () => {
-      assert.equal(pigLatin('car'), 'arcay');
-      assert.equal(pigLatin('dog'), 'ogday');
-    });
-    it('should translate a complex word', () => {
-      assert.equal(pigLatin('create'), 'eatecray');
-      assert.equal(pigLatin('valley'), 'alleyvay');
-    });
-    it('should attach "yay" if word begins with vowel', () => {
-      assert.equal(pigLatin('egg'), 'eggyay');
-      assert.equal(pigLatin('emission'), 'emissionyay');
-    });
-    it('should lowercase and trim word before translation', () => {
-      assert.equal(pigLatin('HeLlO '), 'ellohay');
-      assert.equal(pigLatin(' RoCkEt'), 'ocketray');
-    });
-  });
+
+if(typeof describe === `function`) {
+  describe(`#isRampNumber`, ()=> {
+    it('should return false for non-ramp numbers', () => {
+      assert.equal(isRampNumber(1032), false);
+      assert.equal(isRampNumber(1528), false);
+      assert.equal(isRampNumber(789), true);
+    }); 
+  }) 
 } else {
-
-  getPrompt();
-
+  getPrompt()
 }
+
+
+   
+
 
 
 
