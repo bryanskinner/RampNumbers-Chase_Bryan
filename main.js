@@ -38,8 +38,22 @@ if(typeof describe === `function`) {
     it('should return false for non-ramp numbers', () => {
       assert.equal(isRampNumber(1032), false);
       assert.equal(isRampNumber(1528), false);
-      assert.equal(isRampNumber(789), true);
+      assert.equal(isRampNumber(738), false);
     }); 
+
+    it('should return true for ramp numbers', () => {
+      assert.equal(isRampNumber(1124), true);
+      assert.equal(isRampNumber(13569), true);
+      assert.equal(isRampNumber(0), true); // single-digit numbers are also ramp numbers
+      assert.equal(isRampNumber(11111), true); // numbers with repeating digits are ramp numbers
+    });
+
+    it('should return the number of ramp numbers less than the given number, and a message string', () => {
+      expect(numOfRampsBelow(123)).to.equal('65 total ramp numbers are less than 123');
+      expect(numOfRampsBelow(456)).to.equal('150 total ramp numbers are less than 456');
+      expect(numOfRampsBelow(7890)).to.equal('285 total ramp numbers are less than 7890');
+    });
+
   }) 
 } else {
   getPrompt()
