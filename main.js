@@ -1,3 +1,4 @@
+
 'use strict';
 
 // brings in the assert module for unit testing
@@ -10,62 +11,28 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-const pigLatin = (word) => {
-
-  // Your code here
-
-}
-
-// the first function called in the program to get an input from the user
-// to run the function use the command: node main.js
-// to close it ctrl + C
-const getPrompt = () => {
-  rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
-    getPrompt();
-  });
+const isRampNumber = (number) => {
+return number
 }
 
 // Unit Tests
 // to use them run the command: npm test main.js
 // to close them ctrl + C
-if (typeof describe === 'function') {
 
-  describe('#pigLatin()', () => {
+const getPrompt = () => {
+  rl.question('whatNumber', (answer) => {
+    console.log(isRampNumber(answer))
+    getPrompt()
+  })
+}
+
+if (typeof describe === 'function') {
+  describe('#isRampNumber()', () => {
     it('should translate a simple word', () => {
-      assert.equal(pigLatin('car'), 'arcay');
-      assert.equal(pigLatin('dog'), 'ogday');
-    });
-    it('should translate a complex word', () => {
-      assert.equal(pigLatin('create'), 'eatecray');
-      assert.equal(pigLatin('valley'), 'alleyvay');
-    });
-    it('should attach "yay" if word begins with vowel', () => {
-      assert.equal(pigLatin('egg'), 'eggyay');
-      assert.equal(pigLatin('emission'), 'emissionyay');
-    });
-    it('should lowercase and trim word before translation', () => {
-      assert.equal(pigLatin('HeLlO '), 'ellohay');
-      assert.equal(pigLatin(' RoCkEt'), 'ocketray');
+      assert.equal(isRampNumber(123345), 123345);
+      assert.equal(isRampNumber(123346), false);
     });
   });
 } else {
-
   getPrompt();
-
 }
-
-
-
-
-
-
-// **********
-//   HINTS
-// **********
-
-// break your code into pieces and focus on one piece at a time...
-// 1. if word begins with a vowel send to one function: adds "yay"
-// 2. if word begins with a consonant send to another function: splices off beginning, returns word with new ending.
-// 3. if multiple words, create array of words, loop over them, sending them to different functions and creating a new array with the new words.
