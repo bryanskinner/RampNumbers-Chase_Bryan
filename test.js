@@ -4,15 +4,20 @@
 // Your code here
 
 function handleSubmit(event) {
-  event.preventDefault(); 
-  
-  const form = event.target.form;
-  const number = form.number.value;
+  event.preventDefault();
 
-  const result = numOfRampsBelow(Number(number));
-  const output = document.getElementById('output');
-  output.innerText = result;
+  const input = document.getElementById('number');
+  const number = Number(input.value);
+
+  const resultContainer = document.querySelector('.result_count');
+  resultContainer.textContent = numOfRampsBelow(number);
+
+  const listContainer = document.querySelector('.list_container ul');
+  listContainer.innerHTML = '';
 }
+
+
+
 
 // Checks if the inputted number is a ramp number, and if not returning false
 function isRampNumber(number) {
@@ -41,8 +46,7 @@ const numOfRampsBelow = (number) => {
       count++;
     }
   }
-  const message = `This is a Ramp Number. There are ${count} total ramp numbers less than ${number}`;
-  return message;
+   return `This is a Ramp Number. There are ${count} total ramp numbers less than ${number}`;
 }
 
 
