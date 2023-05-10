@@ -51,8 +51,7 @@ const rl = readline.createInterface({
       }
     }
   
-    const message = `This is a Ramp Number. There are ${count} total ramp numbers less than ${number}`;
-    return message;
+   return `This is a Ramp Number. There are ${count} total ramp numbers less than ${number}`;
   }
 
   

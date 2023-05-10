@@ -1,70 +1,102 @@
 header {
-  background-color: white;
-  font-family: ;
-  font-size: 10vh;
-  padding: 5%;
+    background-color: white;
+    font-family: Thrasher;
+    font-size: 5vh;
+    padding: 1% 5% 15%;
+    border: 5px solid black;
+    animation-name: header;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    color: red;
+    background-image: url(https://droidz.org/resources/120999976011.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+  }
+  @keyframes header {
+    0% {
+      color: rgba(255, 0, 0, 0.625);
+    }
+    25% {
+      color: rgba(255, 255, 0, 0.578);
+    }
+    50% {
+      color: rgba(0, 128, 0, 0.59);
+    }
+  }
+  body {
+    color: rgb(132, 6, 6);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: grey;
+    background-image: url('https://cdn.mos.cms.futurecdn.net/trznWZp6XfdrFcDdGwmj3W-1200-80.jpg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;
+  }
+  form {
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  input {
+    font-size: 50px;
+  }
+  button {
+    border-radius: 50%;
+    font-size: 300%;
+    color: white;
+    background-color: rgba(255, 255, 0, 0.575);
+    margin: 5%;
+    padding: 5%;
+    width: max-content;
+    animation-name: submit_button;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes submit_button {
+    0% {
+      background-color: rgba(255, 255, 0, 0.575);
+    }
+    50% {
+      background-color: rgba(253, 2, 2, 0.727);
+    }
+    90% {
+      background-color: rgb(0, 255, 0);
+    }
+    100% {
+      background-color: rgba(255, 255, 0, 0.575);
+    }
+  }
+  .result_container {
+    background-color: white;
+    border: 10px solid red;
+    display: flex;
+    padding: 5%;
+    width: 50%;
+    height: 10%;
+  }
+  .result_count {
+    background-color: rgba(255, 0, 0, 0.375);
+    font-size: 30px;
+    border: 5px dotted black;
+    margin: 5%;
+  }
+  footer {
+    /* background-color: white;
+    border: 5px solid red; */
+    display: flex;
+    /* /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    font-size: 10px;
+    width: 100%;
+    height: 20%;
+  }
+  p {
+    font-size: 30px;
+  }
   
-  /* display: flex;
-  justify-content: center; */
-
-  border: 5px solid black;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-  background-color: grey;
-}
-form {
-  padding: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-input {
-  font-size: 50px;
-}
-button {
-  font-size: 50px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.727);
-  margin: 5%;
-  width: fit-content;
-}
-.result_container {
-  background-color: white;
-  border: 10px solid red;
-  display: flex;
-  padding: 5%;
-}
-.yes_no {
-  background-color: rgba(255, 0, 0, 0.375);
-  font-size: 30px;
-  border: 5px dotted black;
-  margin: 5%;
-}
-.result_count {
-  background-color: rgba(255, 0, 0, 0.375);
-  font-size: 30px;
-  border: 5px dotted black;
-  margin: 5%;
-}
-.list_container {
-  background-color: white;
-  font-size: 50px;
-  border: 10px double black;
-  margin: 5%;
-  width: 80%;
-}
-footer {
-  /* background-color: white;
-  border: 5px solid red; */
-  display: flex;
-  /* /* justify-content: center; */
-  align-items: center;
-  flex-direction: column;
-  font-size: 10px;
-  width: 100%;
-  height: 20%;
-}
