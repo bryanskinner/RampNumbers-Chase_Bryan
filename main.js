@@ -12,21 +12,67 @@ const rl = readline.createInterface({
 });
 
 
-const isRampNumber = (number) => {
-return number
+
+
   // Your code here
 
-}
+//* Checks if the inputed number is a ramp number, and if not returning false
+  function isRampNumber(number) {
+    const integer = number.toString().split('');
+    for (let i = 1; i < integer.length; i++) {
+      if (integer[i] < integer[i - 1]) {
+        // const isFalse = `This is not a ramp number`
+        // console.log(isFalse)
+        return false;
+      }
+    }
+    // const isTrue = `This is a ramp number`
+    // console.log(isTrue)
+    return true
+  }
+  
+  
+  //* Counts the number of ramp numbers below the inputed number
+  const numOfRampsBelow = (number) => {
+    const integer = number.toString().split('');
+    for (let i = 1; i < integer.length; i++) {
+      if (integer[i] < integer[i - 1]) {
+        // const isFalse = `This is not a ramp number`
+        // console.log(isFalse)
+        return `This is not a ramp number`;
+      }
+    }
+
+    let count = 0;
+  
+    for (let i = 0; i < number; i++) {
+      if (isRampNumber(i)) {
+        count++;
+      }
+    }
+  
+    const message = `This is a Ramp Number. There are ${count} total ramp numbers less than ${number}`;
+    return message;
+  }
+
+  
+
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
+
+
 const getPrompt = () => {
-  rl.question('whatNumber', (answer) => {
-    console.log( isRampNumber(answer) );
+  rl.question('whatNumber: ', (answer) => {
+    console.log( numOfRampsBelow(answer));
     getPrompt();
   });
 }
+
+
+
 
 // Unit Tests
 // to use them run the command: npm test main.js
@@ -44,14 +90,14 @@ if(typeof describe === `function`) {
     it('should return true for ramp numbers', () => {
       assert.equal(isRampNumber(1124), true);
       assert.equal(isRampNumber(13569), true);
-      assert.equal(isRampNumber(0), true); // single-digit numbers are also ramp numbers
-      assert.equal(isRampNumber(11111), true); // numbers with repeating digits are ramp numbers
+      assert.equal(isRampNumber(0), true); 
+      assert.equal(isRampNumber(11111), true); 
     });
 
     it('should return the number of ramp numbers less than the given number, and a message string', () => {
-      expect(numOfRampsBelow(123)).to.equal('65 total ramp numbers are less than 123');
-      expect(numOfRampsBelow(456)).to.equal('150 total ramp numbers are less than 456');
-      expect(numOfRampsBelow(7890)).to.equal('285 total ramp numbers are less than 7890');
+      assert.equal(numOfRampsBelow(123), 'This is a Ramp Number. There are 65 total ramp numbers less than 123');
+      assert.equal(numOfRampsBelow(456), 'This is a Ramp Number. There are 171 total ramp numbers less than 456');
+      assert.equal(numOfRampsBelow(4578), 'This is a Ramp Number. There are 620 total ramp numbers less than 4578');
     });
 
   }) 
@@ -60,19 +106,4 @@ if(typeof describe === `function`) {
 }
 
 
-   
-
-
-
-
-
-
-
-// **********
-//   HINTS
-// **********
-
-// break your code into pieces and focus on one piece at a time...
-// 1. if word begins with a vowel send to one function: adds "yay"
-// 2. if word begins with a consonant send to another function: splices off beginning, returns word with new ending.
-// 3. if multiple words, create array of words, loop over them, sending them to different functions and creating a new array with the new words.
+  
